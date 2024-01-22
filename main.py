@@ -31,16 +31,16 @@ async def display():
             data = [dict(zip(header, row)) for row in reader]
         return JSONResponse(content=data)
 
-@app.get("/database")
-async def database():
-    db = SessionLocal()
-    products = db.query(Product).all()
-    db.close()
+# @app.get("/database")
+# async def database():
+#     db = SessionLocal()
+#     products = db.query(Product).all()
+#     db.close()
 
-# Convert the list of items to a list of dictionaries
-    product_dict_list = [{"id": product.id, "name": product.name, "image1": product.image1} for product in products]
+# # Convert the list of items to a list of dictionaries
+#     product_dict_list = [{"id": product.id, "name": product.name, "image1": product.image1} for product in products]
 
-    return {"items": product_dict_list}
+#     return {"items": product_dict_list}
 
 
 
